@@ -69,52 +69,48 @@ namespace jap_task1_backend.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ActorVideos",
+                name: "ActorVideo",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ActorId = table.Column<int>(type: "int", nullable: false),
-                    VideoId = table.Column<int>(type: "int", nullable: false)
+                    ActorsId = table.Column<int>(type: "int", nullable: false),
+                    VideosId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ActorVideos", x => x.Id);
+                    table.PrimaryKey("PK_ActorVideo", x => new { x.ActorsId, x.VideosId });
                     table.ForeignKey(
-                        name: "FK_ActorVideos_Actors_ActorId",
-                        column: x => x.ActorId,
+                        name: "FK_ActorVideo_Actors_ActorsId",
+                        column: x => x.ActorsId,
                         principalTable: "Actors",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ActorVideos_Videos_VideoId",
-                        column: x => x.VideoId,
+                        name: "FK_ActorVideo_Videos_VideosId",
+                        column: x => x.VideosId,
                         principalTable: "Videos",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "CategoryVideos",
+                name: "CategoryVideo",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CategoryId = table.Column<int>(type: "int", nullable: false),
-                    VideoId = table.Column<int>(type: "int", nullable: false)
+                    CategoriesId = table.Column<int>(type: "int", nullable: false),
+                    VideosId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CategoryVideos", x => x.Id);
+                    table.PrimaryKey("PK_CategoryVideo", x => new { x.CategoriesId, x.VideosId });
                     table.ForeignKey(
-                        name: "FK_CategoryVideos_Categories_CategoryId",
-                        column: x => x.CategoryId,
+                        name: "FK_CategoryVideo_Categories_CategoriesId",
+                        column: x => x.CategoriesId,
                         principalTable: "Categories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CategoryVideos_Videos_VideoId",
-                        column: x => x.VideoId,
+                        name: "FK_CategoryVideo_Videos_VideosId",
+                        column: x => x.VideosId,
                         principalTable: "Videos",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -126,7 +122,7 @@ namespace jap_task1_backend.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Value = table.Column<double>(type: "float", nullable: false),
+                    Value = table.Column<float>(type: "real", nullable: false),
                     VideoId = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -260,7 +256,7 @@ namespace jap_task1_backend.Migrations
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "Email", "Hash", "Name", "Salt", "Surname" },
-                values: new object[] { 1, "admin@gmail.com", new byte[] { 128, 243, 51, 181, 78, 213, 189, 222, 202, 101, 130, 223, 151, 221, 107, 73, 216, 35, 32, 241, 36, 81, 204, 95, 39, 149, 121, 163, 145, 175, 229, 173, 177, 190, 12, 29, 162, 207, 210, 219, 66, 94, 127, 140, 184, 128, 104, 233, 14, 242, 168, 172, 158, 16, 233, 244, 190, 66, 86, 144, 184, 153, 124, 236 }, "Admin", new byte[] { 237, 51, 75, 74, 106, 233, 134, 83, 89, 182, 151, 113, 187, 254, 195, 40, 230, 88, 203, 40, 65, 138, 187, 22, 150, 213, 55, 29, 183, 85, 75, 76, 100, 31, 11, 71, 203, 179, 72, 69, 71, 130, 172, 110, 73, 159, 0, 137, 145, 90, 233, 229, 255, 45, 246, 131, 152, 87, 24, 114, 60, 105, 189, 111, 245, 141, 194, 155, 0, 52, 156, 60, 143, 187, 235, 87, 196, 36, 140, 222, 87, 231, 111, 2, 254, 238, 77, 58, 140, 152, 5, 14, 39, 116, 29, 46, 40, 3, 139, 8, 112, 87, 2, 163, 160, 49, 100, 147, 243, 248, 85, 45, 175, 99, 67, 82, 251, 171, 148, 49, 88, 164, 24, 33, 91, 239, 62, 132 }, "Admin" });
+                values: new object[] { 1, "admin@gmail.com", new byte[] { 93, 207, 145, 137, 210, 98, 24, 181, 230, 14, 130, 171, 74, 194, 112, 248, 174, 175, 146, 154, 80, 121, 254, 24, 161, 121, 11, 61, 37, 172, 196, 130, 42, 97, 248, 143, 31, 212, 136, 242, 50, 164, 17, 135, 156, 169, 22, 249, 229, 151, 217, 102, 141, 241, 165, 174, 74, 207, 253, 209, 86, 90, 216, 236 }, "Admin", new byte[] { 73, 245, 31, 219, 82, 34, 53, 125, 147, 131, 106, 159, 181, 101, 19, 144, 125, 112, 182, 103, 47, 100, 36, 147, 126, 155, 33, 251, 8, 43, 13, 147, 77, 184, 72, 188, 141, 157, 70, 202, 175, 216, 192, 255, 217, 27, 126, 17, 38, 0, 64, 229, 211, 157, 50, 140, 144, 182, 71, 13, 228, 192, 250, 251, 176, 248, 243, 175, 180, 209, 35, 237, 213, 179, 23, 220, 7, 213, 237, 20, 97, 55, 115, 139, 9, 82, 107, 56, 196, 159, 206, 41, 17, 111, 226, 97, 181, 168, 182, 85, 43, 85, 56, 165, 55, 221, 244, 239, 86, 32, 190, 191, 180, 241, 35, 192, 76, 233, 84, 215, 175, 127, 33, 238, 216, 22, 237, 81 }, "Admin" });
 
             migrationBuilder.InsertData(
                 table: "Videos",
@@ -269,7 +265,7 @@ namespace jap_task1_backend.Migrations
                 {
                     { 15, "Emmy Award-winning, 11 episodes, five years in the making, the most expensive nature documentary series ever commissioned by the BBC, and the first to be filmed in high definition.", "https://m.media-amazon.com/images/I/91X9p6+58KL._SY445_.jpg", new DateTime(2010, 4, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), "Planet Earth", (short)1 },
                     { 16, "A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine in order to secure his family's future.", "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/ggFHVNu6YYI5L9pCfOacjizRGt.jpg", new DateTime(2008, 1, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), "Breaking Bad", (short)1 },
-                    { 17, "The story of Easy Company of the U.S. Army 101st Airborne Division and their mission in World War II Europe, from Operation Overlord to V-J Day.", "http://www.impawards.com/tv/posters/band_of_brothers_ver4.jpg", new DateTime(2001, 9, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), "Band of Brothers", (short)1 },
+                    { 17, "The story of Easy Company of the U.S. Army 101st Airborne Division and their mission in World War II Europe, from Operation Overlord to V-J Day.", "https://i.dailymail.co.uk/i/pix/2017/02/13/01/3D24EF6B00000578-4215748-image-a-63_1486948627611.jpg", new DateTime(2001, 9, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), "Band of Brothers", (short)1 },
                     { 18, "In April 1986, an explosion at the Chernobyl nuclear power plant in the Union of Soviet Socialist Republics becomes one of the world's worst man-made catastrophes.", "https://i.redd.it/bv5isr69yr531.png", new DateTime(1986, 4, 26, 0, 0, 0, 0, DateTimeKind.Unspecified), "Chernobyl", (short)1 },
                     { 22, "An exploration of our discovery of the laws of nature and coordinates in space and time.", "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5945/5945188_sa.jpg;maxHeight=640;maxWidth=550", new DateTime(2014, 4, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), "Cosmos: A Spacetime Odyssey", (short)1 },
                     { 20, "David Attenborough returns to the world's oceans in this sequel to the acclaimed documentary filming rare and unusual creatures of the deep, as well as documenting the problems our oceans face.", "https://cdn.shopify.com/s/files/1/0747/3829/products/mL1006_1024x1024.jpg?v=1571445246", new DateTime(2017, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), "Blue Planet II", (short)1 },
@@ -296,211 +292,187 @@ namespace jap_task1_backend.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "ActorVideos",
-                columns: new[] { "Id", "ActorId", "VideoId" },
-                values: new object[,]
-                {
-                    { 1, 1, 1 },
-                    { 32, 29, 11 },
-                    { 31, 28, 11 },
-                    { 56, 37, 20 },
-                    { 57, 53, 20 },
-                    { 30, 27, 10 },
-                    { 29, 20, 10 },
-                    { 28, 18, 10 },
-                    { 33, 30, 11 },
-                    { 58, 54, 20 },
-                    { 26, 25, 9 },
-                    { 25, 24, 9 },
-                    { 59, 37, 21 },
-                    { 60, 56, 22 },
-                    { 48, 44, 17 },
-                    { 23, 22, 8 },
-                    { 22, 21, 8 },
-                    { 27, 26, 9 },
-                    { 55, 52, 19 },
-                    { 34, 31, 12 },
-                    { 35, 32, 12 },
-                    { 49, 45, 17 },
-                    { 46, 42, 16 },
-                    { 45, 41, 16 },
-                    { 44, 40, 16 },
-                    { 50, 46, 18 },
-                    { 43, 39, 15 },
-                    { 42, 38, 15 },
-                    { 41, 37, 15 },
-                    { 51, 47, 18 },
-                    { 52, 48, 18 },
-                    { 40, 37, 14 },
-                    { 39, 36, 13 },
-                    { 38, 35, 13 },
-                    { 37, 34, 13 },
-                    { 53, 50, 19 },
-                    { 54, 51, 19 },
-                    { 36, 33, 12 },
-                    { 61, 57, 22 },
-                    { 62, 58, 22 },
-                    { 24, 23, 8 },
-                    { 12, 11, 4 }
-                });
-
-            migrationBuilder.InsertData(
-                table: "ActorVideos",
-                columns: new[] { "Id", "ActorId", "VideoId" },
-                values: new object[,]
-                {
-                    { 70, 66, 25 },
-                    { 63, 59, 23 },
-                    { 11, 10, 4 },
-                    { 10, 9, 4 },
-                    { 71, 67, 25 },
-                    { 9, 8, 3 },
-                    { 8, 7, 3 },
-                    { 69, 65, 25 },
-                    { 7, 5, 3 },
-                    { 73, 69, 26 },
-                    { 6, 6, 2 },
-                    { 5, 5, 2 },
-                    { 4, 4, 2 },
-                    { 74, 70, 26 },
-                    { 3, 3, 1 },
-                    { 2, 2, 1 },
-                    { 72, 68, 26 },
-                    { 68, 64, 24 },
-                    { 47, 43, 17 },
-                    { 20, 19, 7 },
-                    { 13, 12, 5 },
-                    { 21, 20, 7 },
-                    { 14, 13, 5 },
-                    { 18, 17, 6 },
-                    { 15, 14, 5 },
-                    { 67, 63, 24 },
-                    { 66, 62, 24 },
-                    { 65, 61, 23 },
-                    { 64, 60, 23 },
-                    { 19, 18, 7 },
-                    { 16, 15, 6 },
-                    { 17, 16, 6 }
-                });
-
-            migrationBuilder.InsertData(
-                table: "CategoryVideos",
-                columns: new[] { "Id", "CategoryId", "VideoId" },
-                values: new object[,]
-                {
-                    { 34, 14, 17 },
-                    { 39, 6, 19 },
-                    { 44, 15, 23 },
-                    { 33, 1, 17 },
-                    { 32, 4, 17 },
-                    { 51, 4, 26 },
-                    { 42, 13, 21 },
-                    { 35, 4, 18 },
-                    { 50, 4, 25 },
-                    { 40, 3, 19 }
-                });
-
-            migrationBuilder.InsertData(
-                table: "CategoryVideos",
-                columns: new[] { "Id", "CategoryId", "VideoId" },
-                values: new object[,]
-                {
-                    { 36, 14, 18 },
-                    { 37, 3, 18 },
-                    { 49, 8, 25 },
-                    { 48, 1, 25 },
-                    { 41, 13, 20 },
-                    { 46, 8, 23 },
-                    { 38, 4, 19 },
-                    { 47, 13, 24 },
-                    { 45, 1, 23 },
-                    { 43, 13, 22 },
-                    { 25, 4, 13 },
-                    { 31, 3, 16 },
-                    { 9, 4, 5 },
-                    { 17, 4, 8 },
-                    { 8, 1, 4 },
-                    { 18, 6, 8 },
-                    { 14, 4, 7 },
-                    { 7, 6, 4 },
-                    { 19, 9, 9 },
-                    { 6, 4, 4 },
-                    { 20, 4, 10 },
-                    { 21, 8, 10 },
-                    { 11, 4, 6 },
-                    { 22, 1, 10 },
-                    { 5, 6, 3 },
-                    { 16, 1, 7 },
-                    { 23, 4, 11 },
-                    { 24, 4, 12 },
-                    { 10, 6, 5 },
-                    { 13, 14, 6 },
-                    { 52, 6, 26 },
-                    { 26, 11, 13 },
-                    { 3, 4, 2 },
-                    { 27, 13, 14 },
-                    { 2, 6, 2 },
-                    { 28, 13, 15 },
-                    { 12, 7, 6 },
-                    { 1, 4, 1 },
-                    { 29, 4, 16 },
-                    { 30, 6, 16 },
-                    { 4, 4, 3 },
-                    { 15, 8, 7 }
-                });
-
-            migrationBuilder.InsertData(
                 table: "Ratings",
                 columns: new[] { "Id", "UserId", "Value", "VideoId" },
                 values: new object[,]
                 {
-                    { 3, 1, 4.5, 3 },
-                    { 24, 1, 4.0999999999999996, 24 },
-                    { 2, 1, 4.5, 2 },
-                    { 25, 1, 4.0, 25 },
-                    { 1, 1, 4.5999999999999996, 1 },
-                    { 4, 1, 4.5, 4 },
-                    { 23, 1, 4.0999999999999996, 23 },
-                    { 7, 1, 4.2999999999999998, 7 },
-                    { 6, 1, 4.3499999999999996, 6 },
-                    { 15, 1, 4.5999999999999996, 15 },
-                    { 17, 1, 4.5999999999999996, 17 },
-                    { 14, 1, 4.7000000000000002, 14 },
-                    { 13, 1, 4.0999999999999996, 13 },
-                    { 18, 1, 4.5, 18 },
-                    { 12, 1, 4.0999999999999996, 12 },
-                    { 11, 1, 4.2000000000000002, 11 },
-                    { 10, 1, 4.2000000000000002, 10 },
-                    { 19, 1, 4.4000000000000004, 19 },
-                    { 9, 1, 4.2000000000000002, 9 },
-                    { 20, 1, 4.2999999999999998, 20 },
-                    { 8, 1, 4.2000000000000002, 8 },
-                    { 21, 1, 4.2000000000000002, 21 },
-                    { 16, 1, 4.5999999999999996, 16 },
-                    { 22, 1, 4.0999999999999996, 22 },
-                    { 5, 1, 4.4000000000000004, 5 },
-                    { 26, 1, 3.8999999999999999, 26 }
+                    { 1, 1, 4.6f, 1 },
+                    { 24, 1, 4.1f, 24 },
+                    { 23, 1, 4.1f, 23 },
+                    { 22, 1, 4.1f, 22 },
+                    { 21, 1, 4.2f, 21 },
+                    { 20, 1, 4.3f, 20 },
+                    { 19, 1, 4.4f, 19 },
+                    { 18, 1, 4.5f, 18 },
+                    { 17, 1, 4.6f, 17 },
+                    { 16, 1, 4.6f, 16 },
+                    { 15, 1, 4.6f, 15 },
+                    { 14, 1, 4.7f, 14 },
+                    { 13, 1, 4.1f, 13 },
+                    { 12, 1, 4.1f, 12 },
+                    { 11, 1, 4.2f, 11 },
+                    { 10, 1, 4.2f, 10 },
+                    { 9, 1, 4.2f, 9 },
+                    { 8, 1, 4.2f, 8 },
+                    { 7, 1, 4.3f, 7 },
+                    { 6, 1, 4.35f, 6 },
+                    { 5, 1, 4.4f, 5 },
+                    { 4, 1, 4.5f, 4 },
+                    { 3, 1, 4.5f, 3 },
+                    { 2, 1, 4.5f, 2 },
+                    { 25, 1, 4f, 25 },
+                    { 26, 1, 3.9f, 26 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ActorVideo",
+                columns: new[] { "ActorsId", "VideosId" },
+                values: new object[,]
+                {
+                 { 1, 1 },
+                { 2, 1 },
+                { 3, 1 },
+                { 4, 2 },
+                { 5, 2 },
+                { 6, 2 },
+                { 5, 3 },
+                { 7, 3 },
+                { 8, 3 },
+                { 9, 4 },
+                { 10, 4 },
+                { 11, 4 },
+                { 12, 5 },
+                { 13, 5 },
+                { 14, 5 },
+                { 15, 6 },
+                { 16, 6 },
+                { 17, 6 },
+                { 18, 7 },
+                { 19, 7 },
+                { 20, 7 },
+                { 21, 8 },
+                { 22, 8 },
+                { 23, 8 },
+                { 24, 9 },
+                { 25, 9 },
+                { 26, 9 },
+                { 18, 10 },
+                { 20, 10 },
+                { 27, 10 },
+                { 28, 11 },
+                { 29, 11 },
+                { 30, 11 },
+                { 31, 12 },
+                { 32, 12 },
+                { 33, 12 },
+                { 34, 13 },
+                { 35, 13 },
+                { 36, 13 },
+                { 37, 14 },
+                { 37, 15 },
+                { 38, 15 },
+                { 39, 15 },
+                { 40, 16 },
+                { 41, 16 },
+                { 42, 16 },
+                { 43, 17 },
+                { 44, 17 },
+                { 45, 17 },
+                { 46, 18 },
+                { 47, 18 },
+                { 48, 18 },
+                { 50, 19 },
+                { 51, 19 },
+                { 52, 19 },
+                { 37, 20 },
+                { 53, 20 },
+                { 54, 20 },
+                { 37, 21 },
+                { 56, 22 },
+                { 57, 22 },
+                { 58, 22 },
+                { 59, 23 },
+                { 60, 23 },
+                { 61, 23 },
+                { 62, 24 },
+                { 63, 24 },
+                { 64, 24 },
+                { 65, 25 },
+                { 66, 25 },
+                { 67, 25 },
+                { 68, 26 },
+                { 69, 26 },
+                { 70, 26 }
+            });
+
+            migrationBuilder.InsertData(
+                table: "CategoryVideo",
+                columns: new[] { "CategoriesId", "VideosId" },
+                values: new object[,]
+                {
+                { 4,  1 },
+                { 6,  2 },
+                { 4,  2 },
+                { 4,  3 },
+                { 6,  3 },
+                { 4,  4 },
+                { 6,  4 },
+                { 1,  4 },
+                { 4,  5 },
+                { 6,  5 },
+                { 4,  6 },
+                { 7,  6 },
+                { 14,  6 },
+                { 4,  7 },
+                { 8,  7 },
+                { 1,  7 },
+                { 4,  8 },
+                { 6,  8 },
+                { 9,  9 },
+                { 4,  10 },
+                { 8,  10 },
+                { 1,  10 },
+                { 4,  11 },
+                { 4,  12 },
+                { 4,  13 },
+                { 11,  13 },
+                { 13,  14 },
+                { 13,  15 },
+                { 4,  16 },
+                { 6,  16 },
+                { 3,  16 },
+                { 4,  17 },
+                { 1,  17 },
+                { 14,  17 },
+                { 4,  18 },
+                { 14,  18 },
+                { 3,  18 },
+                { 4,  19 },
+                { 6,  19 },
+                { 3,  19 },
+                { 13,  20 },
+                { 13,  21 },
+                { 13,  22 },
+                { 15,  23 },
+                { 1,  23 },
+                { 8,  23 },
+                { 13,  24 },
+                { 1,  25 },
+                { 8,  25 },
+                { 4,  25 },
+                { 4,  26 },
+                { 6,  26 }
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_ActorVideos_ActorId",
-                table: "ActorVideos",
-                column: "ActorId");
+                name: "IX_ActorVideo_VideosId",
+                table: "ActorVideo",
+                column: "VideosId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ActorVideos_VideoId",
-                table: "ActorVideos",
-                column: "VideoId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_CategoryVideos_CategoryId",
-                table: "CategoryVideos",
-                column: "CategoryId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_CategoryVideos_VideoId",
-                table: "CategoryVideos",
-                column: "VideoId");
+                name: "IX_CategoryVideo_VideosId",
+                table: "CategoryVideo",
+                column: "VideosId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Ratings_UserId",
@@ -516,10 +488,10 @@ namespace jap_task1_backend.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "ActorVideos");
+                name: "ActorVideo");
 
             migrationBuilder.DropTable(
-                name: "CategoryVideos");
+                name: "CategoryVideo");
 
             migrationBuilder.DropTable(
                 name: "Ratings");

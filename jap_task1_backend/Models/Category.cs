@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace jap_task1_backend.Models
 {
@@ -9,6 +6,6 @@ namespace jap_task1_backend.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<CategoryVideo> CategoryVideos { get; set; } = new List<CategoryVideo>();
+        public List<Video> Videos { get; set; } = new List<Video>();
     }
 }

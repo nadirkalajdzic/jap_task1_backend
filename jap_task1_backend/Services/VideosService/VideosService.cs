@@ -35,5 +35,20 @@ namespace jap_task1_backend.Services.VideosService
             return serviceResponse;
         }
 
+        public async Task<ServiceResponse<Video>> GetVideo(int Id)
+        {
+            var serviceResponse = new ServiceResponse<Video>();
+
+            var video = await _context.Videos
+                .Include(x => x.Actors)
+                .Include(x => x.Categories)
+                .FirstOrDefaultAsync(x => x.Id == Id);
+
+            serviceResponse.Data = video;
+            return serviceResponse;
+        }
+
+
+
     }
 }

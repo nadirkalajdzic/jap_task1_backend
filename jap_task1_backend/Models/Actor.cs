@@ -10,6 +10,6 @@ namespace jap_task1_backend.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
-        public List<ActorVideo> ActorVideos { get; set; } = new List<ActorVideo>();
+        public List<Video> Videos { get; set; } = new List<Video>();
     }
 }

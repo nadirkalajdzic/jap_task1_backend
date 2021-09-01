@@ -19,6 +19,36 @@ namespace jap_task1_backend.Migrations
                 .HasAnnotation("ProductVersion", "5.0.9")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("ActorVideo", b =>
+                {
+                    b.Property<int>("ActorsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("VideosId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ActorsId", "VideosId");
+
+                    b.HasIndex("VideosId");
+
+                    b.ToTable("ActorVideo");
+                });
+
+            modelBuilder.Entity("CategoryVideo", b =>
+                {
+                    b.Property<int>("CategoriesId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("VideosId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CategoriesId", "VideosId");
+
+                    b.HasIndex("VideosId");
+
+                    b.ToTable("CategoryVideo");
+                });
+
             modelBuilder.Entity("jap_task1_backend.Models.Actor", b =>
                 {
                     b.Property<int>("Id")
@@ -459,474 +489,6 @@ namespace jap_task1_backend.Migrations
                         });
                 });
 
-            modelBuilder.Entity("jap_task1_backend.Models.ActorVideo", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("ActorId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("VideoId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ActorId");
-
-                    b.HasIndex("VideoId");
-
-                    b.ToTable("ActorVideos");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            ActorId = 1,
-                            VideoId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            ActorId = 2,
-                            VideoId = 1
-                        },
-                        new
-                        {
-                            Id = 3,
-                            ActorId = 3,
-                            VideoId = 1
-                        },
-                        new
-                        {
-                            Id = 4,
-                            ActorId = 4,
-                            VideoId = 2
-                        },
-                        new
-                        {
-                            Id = 5,
-                            ActorId = 5,
-                            VideoId = 2
-                        },
-                        new
-                        {
-                            Id = 6,
-                            ActorId = 6,
-                            VideoId = 2
-                        },
-                        new
-                        {
-                            Id = 7,
-                            ActorId = 5,
-                            VideoId = 3
-                        },
-                        new
-                        {
-                            Id = 8,
-                            ActorId = 7,
-                            VideoId = 3
-                        },
-                        new
-                        {
-                            Id = 9,
-                            ActorId = 8,
-                            VideoId = 3
-                        },
-                        new
-                        {
-                            Id = 10,
-                            ActorId = 9,
-                            VideoId = 4
-                        },
-                        new
-                        {
-                            Id = 11,
-                            ActorId = 10,
-                            VideoId = 4
-                        },
-                        new
-                        {
-                            Id = 12,
-                            ActorId = 11,
-                            VideoId = 4
-                        },
-                        new
-                        {
-                            Id = 13,
-                            ActorId = 12,
-                            VideoId = 5
-                        },
-                        new
-                        {
-                            Id = 14,
-                            ActorId = 13,
-                            VideoId = 5
-                        },
-                        new
-                        {
-                            Id = 15,
-                            ActorId = 14,
-                            VideoId = 5
-                        },
-                        new
-                        {
-                            Id = 16,
-                            ActorId = 15,
-                            VideoId = 6
-                        },
-                        new
-                        {
-                            Id = 17,
-                            ActorId = 16,
-                            VideoId = 6
-                        },
-                        new
-                        {
-                            Id = 18,
-                            ActorId = 17,
-                            VideoId = 6
-                        },
-                        new
-                        {
-                            Id = 19,
-                            ActorId = 18,
-                            VideoId = 7
-                        },
-                        new
-                        {
-                            Id = 20,
-                            ActorId = 19,
-                            VideoId = 7
-                        },
-                        new
-                        {
-                            Id = 21,
-                            ActorId = 20,
-                            VideoId = 7
-                        },
-                        new
-                        {
-                            Id = 22,
-                            ActorId = 21,
-                            VideoId = 8
-                        },
-                        new
-                        {
-                            Id = 23,
-                            ActorId = 22,
-                            VideoId = 8
-                        },
-                        new
-                        {
-                            Id = 24,
-                            ActorId = 23,
-                            VideoId = 8
-                        },
-                        new
-                        {
-                            Id = 25,
-                            ActorId = 24,
-                            VideoId = 9
-                        },
-                        new
-                        {
-                            Id = 26,
-                            ActorId = 25,
-                            VideoId = 9
-                        },
-                        new
-                        {
-                            Id = 27,
-                            ActorId = 26,
-                            VideoId = 9
-                        },
-                        new
-                        {
-                            Id = 28,
-                            ActorId = 18,
-                            VideoId = 10
-                        },
-                        new
-                        {
-                            Id = 29,
-                            ActorId = 20,
-                            VideoId = 10
-                        },
-                        new
-                        {
-                            Id = 30,
-                            ActorId = 27,
-                            VideoId = 10
-                        },
-                        new
-                        {
-                            Id = 31,
-                            ActorId = 28,
-                            VideoId = 11
-                        },
-                        new
-                        {
-                            Id = 32,
-                            ActorId = 29,
-                            VideoId = 11
-                        },
-                        new
-                        {
-                            Id = 33,
-                            ActorId = 30,
-                            VideoId = 11
-                        },
-                        new
-                        {
-                            Id = 34,
-                            ActorId = 31,
-                            VideoId = 12
-                        },
-                        new
-                        {
-                            Id = 35,
-                            ActorId = 32,
-                            VideoId = 12
-                        },
-                        new
-                        {
-                            Id = 36,
-                            ActorId = 33,
-                            VideoId = 12
-                        },
-                        new
-                        {
-                            Id = 37,
-                            ActorId = 34,
-                            VideoId = 13
-                        },
-                        new
-                        {
-                            Id = 38,
-                            ActorId = 35,
-                            VideoId = 13
-                        },
-                        new
-                        {
-                            Id = 39,
-                            ActorId = 36,
-                            VideoId = 13
-                        },
-                        new
-                        {
-                            Id = 40,
-                            ActorId = 37,
-                            VideoId = 14
-                        },
-                        new
-                        {
-                            Id = 41,
-                            ActorId = 37,
-                            VideoId = 15
-                        },
-                        new
-                        {
-                            Id = 42,
-                            ActorId = 38,
-                            VideoId = 15
-                        },
-                        new
-                        {
-                            Id = 43,
-                            ActorId = 39,
-                            VideoId = 15
-                        },
-                        new
-                        {
-                            Id = 44,
-                            ActorId = 40,
-                            VideoId = 16
-                        },
-                        new
-                        {
-                            Id = 45,
-                            ActorId = 41,
-                            VideoId = 16
-                        },
-                        new
-                        {
-                            Id = 46,
-                            ActorId = 42,
-                            VideoId = 16
-                        },
-                        new
-                        {
-                            Id = 47,
-                            ActorId = 43,
-                            VideoId = 17
-                        },
-                        new
-                        {
-                            Id = 48,
-                            ActorId = 44,
-                            VideoId = 17
-                        },
-                        new
-                        {
-                            Id = 49,
-                            ActorId = 45,
-                            VideoId = 17
-                        },
-                        new
-                        {
-                            Id = 50,
-                            ActorId = 46,
-                            VideoId = 18
-                        },
-                        new
-                        {
-                            Id = 51,
-                            ActorId = 47,
-                            VideoId = 18
-                        },
-                        new
-                        {
-                            Id = 52,
-                            ActorId = 48,
-                            VideoId = 18
-                        },
-                        new
-                        {
-                            Id = 53,
-                            ActorId = 50,
-                            VideoId = 19
-                        },
-                        new
-                        {
-                            Id = 54,
-                            ActorId = 51,
-                            VideoId = 19
-                        },
-                        new
-                        {
-                            Id = 55,
-                            ActorId = 52,
-                            VideoId = 19
-                        },
-                        new
-                        {
-                            Id = 56,
-                            ActorId = 37,
-                            VideoId = 20
-                        },
-                        new
-                        {
-                            Id = 57,
-                            ActorId = 53,
-                            VideoId = 20
-                        },
-                        new
-                        {
-                            Id = 58,
-                            ActorId = 54,
-                            VideoId = 20
-                        },
-                        new
-                        {
-                            Id = 59,
-                            ActorId = 37,
-                            VideoId = 21
-                        },
-                        new
-                        {
-                            Id = 60,
-                            ActorId = 56,
-                            VideoId = 22
-                        },
-                        new
-                        {
-                            Id = 61,
-                            ActorId = 57,
-                            VideoId = 22
-                        },
-                        new
-                        {
-                            Id = 62,
-                            ActorId = 58,
-                            VideoId = 22
-                        },
-                        new
-                        {
-                            Id = 63,
-                            ActorId = 59,
-                            VideoId = 23
-                        },
-                        new
-                        {
-                            Id = 64,
-                            ActorId = 60,
-                            VideoId = 23
-                        },
-                        new
-                        {
-                            Id = 65,
-                            ActorId = 61,
-                            VideoId = 23
-                        },
-                        new
-                        {
-                            Id = 66,
-                            ActorId = 62,
-                            VideoId = 24
-                        },
-                        new
-                        {
-                            Id = 67,
-                            ActorId = 63,
-                            VideoId = 24
-                        },
-                        new
-                        {
-                            Id = 68,
-                            ActorId = 64,
-                            VideoId = 24
-                        },
-                        new
-                        {
-                            Id = 69,
-                            ActorId = 65,
-                            VideoId = 25
-                        },
-                        new
-                        {
-                            Id = 70,
-                            ActorId = 66,
-                            VideoId = 25
-                        },
-                        new
-                        {
-                            Id = 71,
-                            ActorId = 67,
-                            VideoId = 25
-                        },
-                        new
-                        {
-                            Id = 72,
-                            ActorId = 68,
-                            VideoId = 26
-                        },
-                        new
-                        {
-                            Id = 73,
-                            ActorId = 69,
-                            VideoId = 26
-                        },
-                        new
-                        {
-                            Id = 74,
-                            ActorId = 70,
-                            VideoId = 26
-                        });
-                });
-
             modelBuilder.Entity("jap_task1_backend.Models.Category", b =>
                 {
                     b.Property<int>("Id")
@@ -1019,342 +581,6 @@ namespace jap_task1_backend.Migrations
                         });
                 });
 
-            modelBuilder.Entity("jap_task1_backend.Models.CategoryVideo", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("VideoId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
-
-                    b.HasIndex("VideoId");
-
-                    b.ToTable("CategoryVideos");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CategoryId = 4,
-                            VideoId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CategoryId = 6,
-                            VideoId = 2
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CategoryId = 4,
-                            VideoId = 2
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CategoryId = 4,
-                            VideoId = 3
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CategoryId = 6,
-                            VideoId = 3
-                        },
-                        new
-                        {
-                            Id = 6,
-                            CategoryId = 4,
-                            VideoId = 4
-                        },
-                        new
-                        {
-                            Id = 7,
-                            CategoryId = 6,
-                            VideoId = 4
-                        },
-                        new
-                        {
-                            Id = 8,
-                            CategoryId = 1,
-                            VideoId = 4
-                        },
-                        new
-                        {
-                            Id = 9,
-                            CategoryId = 4,
-                            VideoId = 5
-                        },
-                        new
-                        {
-                            Id = 10,
-                            CategoryId = 6,
-                            VideoId = 5
-                        },
-                        new
-                        {
-                            Id = 11,
-                            CategoryId = 4,
-                            VideoId = 6
-                        },
-                        new
-                        {
-                            Id = 12,
-                            CategoryId = 7,
-                            VideoId = 6
-                        },
-                        new
-                        {
-                            Id = 13,
-                            CategoryId = 14,
-                            VideoId = 6
-                        },
-                        new
-                        {
-                            Id = 14,
-                            CategoryId = 4,
-                            VideoId = 7
-                        },
-                        new
-                        {
-                            Id = 15,
-                            CategoryId = 8,
-                            VideoId = 7
-                        },
-                        new
-                        {
-                            Id = 16,
-                            CategoryId = 1,
-                            VideoId = 7
-                        },
-                        new
-                        {
-                            Id = 17,
-                            CategoryId = 4,
-                            VideoId = 8
-                        },
-                        new
-                        {
-                            Id = 18,
-                            CategoryId = 6,
-                            VideoId = 8
-                        },
-                        new
-                        {
-                            Id = 19,
-                            CategoryId = 9,
-                            VideoId = 9
-                        },
-                        new
-                        {
-                            Id = 20,
-                            CategoryId = 4,
-                            VideoId = 10
-                        },
-                        new
-                        {
-                            Id = 21,
-                            CategoryId = 8,
-                            VideoId = 10
-                        },
-                        new
-                        {
-                            Id = 22,
-                            CategoryId = 1,
-                            VideoId = 10
-                        },
-                        new
-                        {
-                            Id = 23,
-                            CategoryId = 4,
-                            VideoId = 11
-                        },
-                        new
-                        {
-                            Id = 24,
-                            CategoryId = 4,
-                            VideoId = 12
-                        },
-                        new
-                        {
-                            Id = 25,
-                            CategoryId = 4,
-                            VideoId = 13
-                        },
-                        new
-                        {
-                            Id = 26,
-                            CategoryId = 11,
-                            VideoId = 13
-                        },
-                        new
-                        {
-                            Id = 27,
-                            CategoryId = 13,
-                            VideoId = 14
-                        },
-                        new
-                        {
-                            Id = 28,
-                            CategoryId = 13,
-                            VideoId = 15
-                        },
-                        new
-                        {
-                            Id = 29,
-                            CategoryId = 4,
-                            VideoId = 16
-                        },
-                        new
-                        {
-                            Id = 30,
-                            CategoryId = 6,
-                            VideoId = 16
-                        },
-                        new
-                        {
-                            Id = 31,
-                            CategoryId = 3,
-                            VideoId = 16
-                        },
-                        new
-                        {
-                            Id = 32,
-                            CategoryId = 4,
-                            VideoId = 17
-                        },
-                        new
-                        {
-                            Id = 33,
-                            CategoryId = 1,
-                            VideoId = 17
-                        },
-                        new
-                        {
-                            Id = 34,
-                            CategoryId = 14,
-                            VideoId = 17
-                        },
-                        new
-                        {
-                            Id = 35,
-                            CategoryId = 4,
-                            VideoId = 18
-                        },
-                        new
-                        {
-                            Id = 36,
-                            CategoryId = 14,
-                            VideoId = 18
-                        },
-                        new
-                        {
-                            Id = 37,
-                            CategoryId = 3,
-                            VideoId = 18
-                        },
-                        new
-                        {
-                            Id = 38,
-                            CategoryId = 4,
-                            VideoId = 19
-                        },
-                        new
-                        {
-                            Id = 39,
-                            CategoryId = 6,
-                            VideoId = 19
-                        },
-                        new
-                        {
-                            Id = 40,
-                            CategoryId = 3,
-                            VideoId = 19
-                        },
-                        new
-                        {
-                            Id = 41,
-                            CategoryId = 13,
-                            VideoId = 20
-                        },
-                        new
-                        {
-                            Id = 42,
-                            CategoryId = 13,
-                            VideoId = 21
-                        },
-                        new
-                        {
-                            Id = 43,
-                            CategoryId = 13,
-                            VideoId = 22
-                        },
-                        new
-                        {
-                            Id = 44,
-                            CategoryId = 15,
-                            VideoId = 23
-                        },
-                        new
-                        {
-                            Id = 45,
-                            CategoryId = 1,
-                            VideoId = 23
-                        },
-                        new
-                        {
-                            Id = 46,
-                            CategoryId = 8,
-                            VideoId = 23
-                        },
-                        new
-                        {
-                            Id = 47,
-                            CategoryId = 13,
-                            VideoId = 24
-                        },
-                        new
-                        {
-                            Id = 48,
-                            CategoryId = 1,
-                            VideoId = 25
-                        },
-                        new
-                        {
-                            Id = 49,
-                            CategoryId = 8,
-                            VideoId = 25
-                        },
-                        new
-                        {
-                            Id = 50,
-                            CategoryId = 4,
-                            VideoId = 25
-                        },
-                        new
-                        {
-                            Id = 51,
-                            CategoryId = 4,
-                            VideoId = 26
-                        },
-                        new
-                        {
-                            Id = 52,
-                            CategoryId = 6,
-                            VideoId = 26
-                        });
-                });
-
             modelBuilder.Entity("jap_task1_backend.Models.Rating", b =>
                 {
                     b.Property<int>("Id")
@@ -1365,8 +591,8 @@ namespace jap_task1_backend.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.Property<double>("Value")
-                        .HasColumnType("float");
+                    b.Property<float>("Value")
+                        .HasColumnType("real");
 
                     b.Property<int>("VideoId")
                         .HasColumnType("int");
@@ -1384,182 +610,182 @@ namespace jap_task1_backend.Migrations
                         {
                             Id = 1,
                             UserId = 1,
-                            Value = 4.5999999999999996,
+                            Value = 4.6f,
                             VideoId = 1
                         },
                         new
                         {
                             Id = 2,
                             UserId = 1,
-                            Value = 4.5,
+                            Value = 4.5f,
                             VideoId = 2
                         },
                         new
                         {
                             Id = 3,
                             UserId = 1,
-                            Value = 4.5,
+                            Value = 4.5f,
                             VideoId = 3
                         },
                         new
                         {
                             Id = 4,
                             UserId = 1,
-                            Value = 4.5,
+                            Value = 4.5f,
                             VideoId = 4
                         },
                         new
                         {
                             Id = 5,
                             UserId = 1,
-                            Value = 4.4000000000000004,
+                            Value = 4.4f,
                             VideoId = 5
                         },
                         new
                         {
                             Id = 6,
                             UserId = 1,
-                            Value = 4.3499999999999996,
+                            Value = 4.35f,
                             VideoId = 6
                         },
                         new
                         {
                             Id = 7,
                             UserId = 1,
-                            Value = 4.2999999999999998,
+                            Value = 4.3f,
                             VideoId = 7
                         },
                         new
                         {
                             Id = 8,
                             UserId = 1,
-                            Value = 4.2000000000000002,
+                            Value = 4.2f,
                             VideoId = 8
                         },
                         new
                         {
                             Id = 9,
                             UserId = 1,
-                            Value = 4.2000000000000002,
+                            Value = 4.2f,
                             VideoId = 9
                         },
                         new
                         {
                             Id = 10,
                             UserId = 1,
-                            Value = 4.2000000000000002,
+                            Value = 4.2f,
                             VideoId = 10
                         },
                         new
                         {
                             Id = 11,
                             UserId = 1,
-                            Value = 4.2000000000000002,
+                            Value = 4.2f,
                             VideoId = 11
                         },
                         new
                         {
                             Id = 12,
                             UserId = 1,
-                            Value = 4.0999999999999996,
+                            Value = 4.1f,
                             VideoId = 12
                         },
                         new
                         {
                             Id = 13,
                             UserId = 1,
-                            Value = 4.0999999999999996,
+                            Value = 4.1f,
                             VideoId = 13
                         },
                         new
                         {
                             Id = 14,
                             UserId = 1,
-                            Value = 4.7000000000000002,
+                            Value = 4.7f,
                             VideoId = 14
                         },
                         new
                         {
                             Id = 15,
                             UserId = 1,
-                            Value = 4.5999999999999996,
+                            Value = 4.6f,
                             VideoId = 15
                         },
                         new
                         {
                             Id = 16,
                             UserId = 1,
-                            Value = 4.5999999999999996,
+                            Value = 4.6f,
                             VideoId = 16
                         },
                         new
                         {
                             Id = 17,
                             UserId = 1,
-                            Value = 4.5999999999999996,
+                            Value = 4.6f,
                             VideoId = 17
                         },
                         new
                         {
                             Id = 18,
                             UserId = 1,
-                            Value = 4.5,
+                            Value = 4.5f,
                             VideoId = 18
                         },
                         new
                         {
                             Id = 19,
                             UserId = 1,
-                            Value = 4.4000000000000004,
+                            Value = 4.4f,
                             VideoId = 19
                         },
                         new
                         {
                             Id = 20,
                             UserId = 1,
-                            Value = 4.2999999999999998,
+                            Value = 4.3f,
                             VideoId = 20
                         },
                         new
                         {
                             Id = 21,
                             UserId = 1,
-                            Value = 4.2000000000000002,
+                            Value = 4.2f,
                             VideoId = 21
                         },
                         new
                         {
                             Id = 22,
                             UserId = 1,
-                            Value = 4.0999999999999996,
+                            Value = 4.1f,
                             VideoId = 22
                         },
                         new
                         {
                             Id = 23,
                             UserId = 1,
-                            Value = 4.0999999999999996,
+                            Value = 4.1f,
                             VideoId = 23
                         },
                         new
                         {
                             Id = 24,
                             UserId = 1,
-                            Value = 4.0999999999999996,
+                            Value = 4.1f,
                             VideoId = 24
                         },
                         new
                         {
                             Id = 25,
                             UserId = 1,
-                            Value = 4.0,
+                            Value = 4f,
                             VideoId = 25
                         },
                         new
                         {
                             Id = 26,
                             UserId = 1,
-                            Value = 3.8999999999999999,
+                            Value = 3.9f,
                             VideoId = 26
                         });
                 });
@@ -1595,9 +821,9 @@ namespace jap_task1_backend.Migrations
                         {
                             Id = 1,
                             Email = "admin@gmail.com",
-                            Hash = new byte[] { 128, 243, 51, 181, 78, 213, 189, 222, 202, 101, 130, 223, 151, 221, 107, 73, 216, 35, 32, 241, 36, 81, 204, 95, 39, 149, 121, 163, 145, 175, 229, 173, 177, 190, 12, 29, 162, 207, 210, 219, 66, 94, 127, 140, 184, 128, 104, 233, 14, 242, 168, 172, 158, 16, 233, 244, 190, 66, 86, 144, 184, 153, 124, 236 },
+                            Hash = new byte[] { 93, 207, 145, 137, 210, 98, 24, 181, 230, 14, 130, 171, 74, 194, 112, 248, 174, 175, 146, 154, 80, 121, 254, 24, 161, 121, 11, 61, 37, 172, 196, 130, 42, 97, 248, 143, 31, 212, 136, 242, 50, 164, 17, 135, 156, 169, 22, 249, 229, 151, 217, 102, 141, 241, 165, 174, 74, 207, 253, 209, 86, 90, 216, 236 },
                             Name = "Admin",
-                            Salt = new byte[] { 237, 51, 75, 74, 106, 233, 134, 83, 89, 182, 151, 113, 187, 254, 195, 40, 230, 88, 203, 40, 65, 138, 187, 22, 150, 213, 55, 29, 183, 85, 75, 76, 100, 31, 11, 71, 203, 179, 72, 69, 71, 130, 172, 110, 73, 159, 0, 137, 145, 90, 233, 229, 255, 45, 246, 131, 152, 87, 24, 114, 60, 105, 189, 111, 245, 141, 194, 155, 0, 52, 156, 60, 143, 187, 235, 87, 196, 36, 140, 222, 87, 231, 111, 2, 254, 238, 77, 58, 140, 152, 5, 14, 39, 116, 29, 46, 40, 3, 139, 8, 112, 87, 2, 163, 160, 49, 100, 147, 243, 248, 85, 45, 175, 99, 67, 82, 251, 171, 148, 49, 88, 164, 24, 33, 91, 239, 62, 132 },
+                            Salt = new byte[] { 73, 245, 31, 219, 82, 34, 53, 125, 147, 131, 106, 159, 181, 101, 19, 144, 125, 112, 182, 103, 47, 100, 36, 147, 126, 155, 33, 251, 8, 43, 13, 147, 77, 184, 72, 188, 141, 157, 70, 202, 175, 216, 192, 255, 217, 27, 126, 17, 38, 0, 64, 229, 211, 157, 50, 140, 144, 182, 71, 13, 228, 192, 250, 251, 176, 248, 243, 175, 180, 209, 35, 237, 213, 179, 23, 220, 7, 213, 237, 20, 97, 55, 115, 139, 9, 82, 107, 56, 196, 159, 206, 41, 17, 111, 226, 97, 181, 168, 182, 85, 43, 85, 56, 165, 55, 221, 244, 239, 86, 32, 190, 191, 180, 241, 35, 192, 76, 233, 84, 215, 175, 127, 33, 238, 216, 22, 237, 81 },
                             Surname = "Admin"
                         });
                 });
@@ -1777,7 +1003,7 @@ namespace jap_task1_backend.Migrations
                         {
                             Id = 17,
                             Description = "The story of Easy Company of the U.S. Army 101st Airborne Division and their mission in World War II Europe, from Operation Overlord to V-J Day.",
-                            Image_Url = "http://www.impawards.com/tv/posters/band_of_brothers_ver4.jpg",
+                            Image_Url = "https://i.dailymail.co.uk/i/pix/2017/02/13/01/3D24EF6B00000578-4215748-image-a-63_1486948627611.jpg",
                             ReleaseDate = new DateTime(2001, 9, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Band of Brothers",
                             Type = (short)1
@@ -1865,32 +1091,32 @@ namespace jap_task1_backend.Migrations
                         });
                 });
 
-            modelBuilder.Entity("jap_task1_backend.Models.ActorVideo", b =>
+            modelBuilder.Entity("ActorVideo", b =>
                 {
                     b.HasOne("jap_task1_backend.Models.Actor", null)
-                        .WithMany("ActorVideos")
-                        .HasForeignKey("ActorId")
+                        .WithMany()
+                        .HasForeignKey("ActorsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("jap_task1_backend.Models.Video", null)
-                        .WithMany("ActorVideos")
-                        .HasForeignKey("VideoId")
+                        .WithMany()
+                        .HasForeignKey("VideosId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("jap_task1_backend.Models.CategoryVideo", b =>
+            modelBuilder.Entity("CategoryVideo", b =>
                 {
                     b.HasOne("jap_task1_backend.Models.Category", null)
-                        .WithMany("CategoryVideos")
-                        .HasForeignKey("CategoryId")
+                        .WithMany()
+                        .HasForeignKey("CategoriesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("jap_task1_backend.Models.Video", null)
-                        .WithMany("CategoryVideos")
-                        .HasForeignKey("VideoId")
+                        .WithMany()
+                        .HasForeignKey("VideosId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -1910,16 +1136,6 @@ namespace jap_task1_backend.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("jap_task1_backend.Models.Actor", b =>
-                {
-                    b.Navigation("ActorVideos");
-                });
-
-            modelBuilder.Entity("jap_task1_backend.Models.Category", b =>
-                {
-                    b.Navigation("CategoryVideos");
-                });
-
             modelBuilder.Entity("jap_task1_backend.Models.User", b =>
                 {
                     b.Navigation("Ratings");
@@ -1927,10 +1143,6 @@ namespace jap_task1_backend.Migrations
 
             modelBuilder.Entity("jap_task1_backend.Models.Video", b =>
                 {
-                    b.Navigation("ActorVideos");
-
-                    b.Navigation("CategoryVideos");
-
                     b.Navigation("Ratings");
                 });
 #pragma warning restore 612, 618
