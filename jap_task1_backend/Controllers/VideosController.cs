@@ -32,7 +32,7 @@ namespace jap_task1_backend.Controllers
         }
 
         [HttpGet(":Id")]
-        public async Task<ActionResult<ServiceResponse<List<GetVideoDTO>>>> GetVideo(int Id)
+        public async Task<ActionResult<ServiceResponse<List<GetVideoFullInfoDTO>>>> GetVideo(int Id)
         {
             return Ok(await _videosService.GetVideo(Id));
         }

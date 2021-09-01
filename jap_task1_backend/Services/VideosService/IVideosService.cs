@@ -8,6 +8,6 @@ namespace jap_task1_backend.Services.VideosService
     public interface IVideosService
     {
         Task<ServiceResponse<List<GetVideoDTO>>> GetTopVideos(int type);
-        Task<ServiceResponse<Video>> GetVideo(int Id);
+        Task<ServiceResponse<GetVideoFullInfoDTO>> GetVideo(int Id);
     }
 }

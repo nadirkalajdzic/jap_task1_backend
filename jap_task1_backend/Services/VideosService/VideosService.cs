@@ -35,16 +35,17 @@ namespace jap_task1_backend.Services.VideosService
             return serviceResponse;
         }
 
-        public async Task<ServiceResponse<Video>> GetVideo(int Id)
+        public async Task<ServiceResponse<GetVideoFullInfoDTO>> GetVideo(int Id)
         {
-            var serviceResponse = new ServiceResponse<Video>();
+            ServiceResponse<GetVideoFullInfoDTO> serviceResponse = new ServiceResponse<GetVideoFullInfoDTO>();
 
             var video = await _context.Videos
                 .Include(x => x.Actors)
                 .Include(x => x.Categories)
+                .Include(x => x.Ratings)
                 .FirstOrDefaultAsync(x => x.Id == Id);
 
-            serviceResponse.Data = video;
+            serviceResponse.Data = _mapper.Map<GetVideoFullInfoDTO>(video);
             return serviceResponse;
         }
 
