@@ -1,8 +1,6 @@
-﻿using jap_task1_backend.Models;
+﻿using jap_task1_backend.DTO.Rating;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace jap_task1_backend.DTO.Video
 {
@@ -11,8 +9,7 @@ namespace jap_task1_backend.DTO.Video
         public string Title { get; set; }
         public string Description { get; set; }
         public string Image_Url { get; set; }
-        public short Type { get; set; }
         public DateTime ReleaseDate { get; set; }
-        public List<Rating> Ratings { get; set; } = new List<Rating>();
+        public List<GetRatingOnlyDTO> Ratings { get; set; } = new List<GetRatingOnlyDTO>();
     }
 }

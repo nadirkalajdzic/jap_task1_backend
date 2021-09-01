@@ -9,6 +9,6 @@ namespace jap_task1_backend.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<Video> Videos { get; set; } = new List<Video>();
+        public List<CategoryVideo> CategoryVideos { get; set; } = new List<CategoryVideo>();
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace jap_task1_backend.Controllers
 {
     [ApiController]
-    [Route("/movies")]
+    [Route("videos")]
     public class VideosController : ControllerBase
     {
 
@@ -19,10 +19,16 @@ namespace jap_task1_backend.Controllers
             _videosService = videosService;
         }
 
-        [HttpGet("/")]
-        public async Task<ActionResult<ServiceResponse<List<GetVideoDTO>>>> Get()
+        [HttpGet("top_movies")]
+        public async Task<ActionResult<ServiceResponse<List<GetVideoDTO>>>> GetTopMovies()
         {
-            return Ok(await _videosService.GetTopMovies());
+            return Ok(await _videosService.GetTopVideos(0));
+        }
+
+        [HttpGet("top_shows")]
+        public async Task<ActionResult<ServiceResponse<List<GetVideoDTO>>>> GetTopShows()
+        {
+            return Ok(await _videosService.GetTopVideos(1));
         }
     }
 }

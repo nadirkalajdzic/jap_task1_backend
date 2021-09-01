@@ -5,11 +5,10 @@ using System.Threading.Tasks;
 
 namespace jap_task1_backend.Models
 {
-    public class Actor
+    public class CategoryVideo
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public List<ActorVideo> ActorVideos { get; set; } = new List<ActorVideo>();
+        public int CategoryId { get; set; }
+        public int VideoId { get; set; }
     }
 }
