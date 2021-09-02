@@ -1,4 +1,5 @@
 ﻿using jap_task1_backend.Data;
+using jap_task1_backend.DTO.User;
 using jap_task1_backend.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -24,9 +25,9 @@ namespace jap_task1_backend.Services.AuthService
             _context = context;
         }
 
-        public async Task<ServiceResponse<string>> Login(string email, string password)
+        public async Task<ServiceResponse<UserLoginDTO>> Login(string email, string password)
         {
-            ServiceResponse<string> response = new ServiceResponse<string>();
+            ServiceResponse<UserLoginDTO> response = new();
             User user = await _context.Users.FirstOrDefaultAsync(x => x.Email.ToUpper().Equals(email.ToUpper()));
             if (user == null)
             {
@@ -40,7 +41,12 @@ namespace jap_task1_backend.Services.AuthService
             }
             else
             {
-                response.Data = CreateToken(user);
+                UserLoginDTO userLogin = new();
+                userLogin.Token = CreateToken(user);
+                userLogin.Name = user.Name;
+                userLogin.Surname = user.Surname;
+                
+                response.Data = userLogin;
             }
 
             return response;

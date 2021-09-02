@@ -1,4 +1,5 @@
 ﻿using jap_task1_backend.DTO.User;
+using jap_task1_backend.DTO.Video;
 using jap_task1_backend.Models;
 using jap_task1_backend.Services.AuthService;
 using Microsoft.AspNetCore.Mvc;
@@ -23,6 +24,18 @@ namespace jap_task1_backend.Controllers
             ServiceResponse<int> response = await _authService.Register(
                 new User { Email = request.Email, Name = request.Name, Surname = request.Surname }, request.Password
             );
+            if (!response.Success)
+            {
+                return BadRequest(response);
+            }
+            return Ok(response);
+        }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login(LoginDTO request)
+        {
+            ServiceResponse<UserLoginDTO> response = await _authService.Login(request.Email, request.Password);
+
             if (!response.Success)
             {
                 return BadRequest(response);
