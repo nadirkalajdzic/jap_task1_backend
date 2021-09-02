@@ -36,5 +36,14 @@ namespace jap_task1_backend.Controllers
         {
             return Ok(await _videosService.GetVideo(Id));
         }
+
+        [HttpGet]
+        public async Task<ActionResult<ServiceResponse<List<GetVideoDTO>>>> GetFilteredVideos([FromQuery] string search = null)
+        {
+          if (search == null) return Ok(await _videosService.GetTopVideos(0));
+          
+            return Ok(await _videosService.GetFilteredVideos(search));
+        }
+
     }
 }

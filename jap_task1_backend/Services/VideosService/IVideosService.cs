@@ -9,5 +9,6 @@ namespace jap_task1_backend.Services.VideosService
     {
         Task<ServiceResponse<List<GetVideoDTO>>> GetTopVideos(int type);
         Task<ServiceResponse<GetVideoFullInfoDTO>> GetVideo(int Id);
+        Task<ServiceResponse<List<GetVideoDTO>>> GetFilteredVideos(string Search);
     }
 }
