@@ -1,9 +1,11 @@
 using jap_task1_backend.Data;
 using jap_task1_backend.Services.AuthService;
+using jap_task1_backend.Services.RatingsService;
 using jap_task1_backend.Services.VideosService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -71,8 +73,11 @@ namespace jap_task1_backend
                 };
             });
 
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             services.AddScoped<IVideosService, VideosService>();
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IRatingsService, RatingsService>();
         }
             
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
