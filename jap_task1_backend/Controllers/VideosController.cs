@@ -25,10 +25,22 @@ namespace jap_task1_backend.Controllers
             return Ok(await _videosService.GetTopVideos(0));
         }
 
+        [HttpGet("top_movies/top_ten")]
+        public async Task<ActionResult<ServiceResponse<List<GetVideoDTO>>>> GetTop10Movies()
+        {
+            return Ok(await _videosService.GetTop10Videos(0));
+        }
+
         [HttpGet("top_shows")]
         public async Task<ActionResult<ServiceResponse<List<GetVideoDTO>>>> GetTopShows()
         {
             return Ok(await _videosService.GetTopVideos(1));
+        }
+
+        [HttpGet("top_shows/top_ten")]
+        public async Task<ActionResult<ServiceResponse<List<GetVideoDTO>>>> GetTop10Shows()
+        {
+            return Ok(await _videosService.GetTop10Videos(1));
         }
 
         [HttpGet("item/{Id}")]

@@ -38,6 +38,22 @@ namespace jap_task1_backend.Services.VideosService
             return serviceResponse;
         }
 
+        public async Task<ServiceResponse<List<GetVideoDTO>>> GetTop10Videos(int type)
+        {
+            var serviceResponse = new ServiceResponse<List<GetVideoDTO>>();
+
+            var topMovies = await _context.Videos.Include(x => x.Ratings)
+                                                 .AsSplitQuery()
+                                                 .Where(x => x.Type == type).Take(10)
+                                                 .ToListAsync();
+
+            var topMoviesDTO = topMovies.Select(x => _mapper.Map<GetVideoDTO>(x)).ToList();
+            topMoviesDTO = topMoviesDTO.OrderByDescending(x => x.Ratings.Select(x => x.Value).Average()).ToList();
+
+            serviceResponse.Data = topMoviesDTO;
+            return serviceResponse;
+        }
+
         public async Task<ServiceResponse<GetVideoFullInfoDTO>> GetVideo(int Id)
         {
             ServiceResponse<GetVideoFullInfoDTO> serviceResponse = new ServiceResponse<GetVideoFullInfoDTO>();
