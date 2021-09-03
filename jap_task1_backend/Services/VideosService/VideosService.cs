@@ -92,7 +92,8 @@ namespace jap_task1_backend.Services.VideosService
 
             if (searchQuery.Count < 2)
             {
-                query = query.Where(x => x.Title.ToUpper().Contains(Search.ToUpper()));
+                query = query = query.Where(x => x.Title.ToUpper().Contains(Search.ToUpper())
+                                  || x.Description.ToUpper().Contains(Search.ToUpper()));
                 return;
             }
 
@@ -105,8 +106,9 @@ namespace jap_task1_backend.Services.VideosService
                     query = query.Where(x => x.ReleaseDate.Year > ratingForSearchAfter);
                 else if (containingStringStar(searchQuery[1]) && float.TryParse(searchQuery[0], out float exactRating))
                     query = query.Where(x => x.Ratings.Select(x => x.Value).Average() == exactRating);
-                else 
-                    query = query.Where(x => x.Title.ToUpper().Contains(Search.ToUpper()));
+                else
+                    query = query.Where(x => x.Title.ToUpper().Contains(Search.ToUpper())
+                                  || x.Description.ToUpper().Contains(Search.ToUpper()));
             } 
             else if(searchQuery.Count == 4)
             {
@@ -123,7 +125,8 @@ namespace jap_task1_backend.Services.VideosService
                     query = query.Where(x => DateTime.Now.Year - x.ReleaseDate.Year > dateForSearchOlderThan);
                 } 
             }
-            else query = query.Where(x => x.Title.ToUpper().Contains(Search.ToUpper()));
+            else query = query.Where(x => x.Title.ToUpper().Contains(Search.ToUpper()) 
+                                  || x.Description.ToUpper().Contains(Search.ToUpper()));
 
         }
 

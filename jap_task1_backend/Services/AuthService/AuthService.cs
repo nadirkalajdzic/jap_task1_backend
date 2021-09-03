@@ -33,11 +33,13 @@ namespace jap_task1_backend.Services.AuthService
             {
                 response.Success = false;
                 response.Message = "User not found.";
+                
             }
             else if (!VerifyPasswordHash(password, user.Hash, user.Salt))
             {
                 response.Success = false;
                 response.Message = "Wrong password";
+     
             }
             else
             {
@@ -50,6 +52,7 @@ namespace jap_task1_backend.Services.AuthService
             }
 
             return response;
+
         }
 
         public async Task<ServiceResponse<int>> Register(User user, string password)

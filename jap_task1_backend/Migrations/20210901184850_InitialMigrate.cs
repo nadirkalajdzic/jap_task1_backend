@@ -329,7 +329,7 @@ namespace jap_task1_backend.Migrations
                 columns: new[] { "ActorsId", "VideosId" },
                 values: new object[,]
                 {
-                 { 1, 1 },
+                { 1, 1 },
                 { 2, 1 },
                 { 3, 1 },
                 { 4, 2 },

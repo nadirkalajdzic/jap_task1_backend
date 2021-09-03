@@ -19,8 +19,6 @@ namespace jap_task1_backend
 {
     public class Startup
     {
-        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
-
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -47,17 +45,6 @@ namespace jap_task1_backend
                     Type = SecuritySchemeType.ApiKey
                 });
                 c.OperationFilter<SecurityRequirementsOperationFilter>();
-            });
-
-            services.AddCors(options =>
-            {
-                options.AddPolicy(name: MyAllowSpecificOrigins,
-                                  builder =>
-                                  {
-                                      builder.AllowAnyOrigin()
-                                             .AllowAnyMethod()
-                                             .AllowAnyHeader();
-                                  });
             });
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -94,7 +81,9 @@ namespace jap_task1_backend
 
             app.UseRouting();
 
-            app.UseCors(MyAllowSpecificOrigins);
+            app.UseCors(
+                 options => options.WithOrigins("http://localhost:3000").AllowAnyMethod().AllowAnyHeader()
+                ) ;
 
             app.UseAuthentication();
 

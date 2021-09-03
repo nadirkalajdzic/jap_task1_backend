@@ -23,7 +23,12 @@ namespace jap_task1_backend.Controllers
         [HttpPost("add")]
         public async Task<IActionResult> AddRating(AddRatingDTO addRating)
         {
-            return Ok(await _ratingsService.AddRating(addRating.Value, addRating.VideoId));
+            var response = await _ratingsService.AddRating(addRating.Value, addRating.VideoId);
+            
+            if (!response.Success)
+                return BadRequest(response);
+
+            return Ok(response);
         }
     }
 }
